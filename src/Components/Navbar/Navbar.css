@@ -1,0 +1,38 @@
+/* Navbar Styles */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 20px; /* Hier kannst du die Höhe der Navbar anpassen */
+    text-align: center;
+    width: 100%;  /* 100% Breite für volle Bildschirmbreite */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  /* Main Content muss Platz für die Navbar schaffen */
+.main-content {
+    margin-top: 40px; /* Platz für die Navbar, passe die Zahl an die Höhe der Navbar an */
+  }
+  
+  .navbar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navbar li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  .navbar a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  
