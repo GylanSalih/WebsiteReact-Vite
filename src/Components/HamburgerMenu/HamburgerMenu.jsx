@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './HamburgerMenu.css'; // Deine CSS-Datei für das Menü
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

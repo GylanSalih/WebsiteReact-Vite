@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle.jsx";
-import './Navbar.css'; // Import the CSS for Navbar
 
 const Navbar = () => {
   return (

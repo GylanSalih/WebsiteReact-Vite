@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './Cursor.css'; // Deine Cursor-Spezifischen CSS-Stile
 
 const Cursor = () => {
   const [mouseX, setMouseX] = useState(0);
