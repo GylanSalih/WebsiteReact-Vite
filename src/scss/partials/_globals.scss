@@ -1,0 +1,86 @@
+/*-----------------------------------------------------------*/
+// Globals SCSS
+/*-----------------------------------------------------------*/
+
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Standardfarbe für Light Mode */
+  color: #000000; /* Textfarbe für Light Mode */
+  cursor: none;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #000000; /* Hintergrund für Dark Mode */
+  color: #ffffff; /* Textfarbe für Dark Mode */
+}
+
+/* Hauptinhalt */
+.main-content {
+  background-color: inherit; /* Verwendet die Hintergrundfarbe von body */
+  min-height: 50vh; /* Mindestens 50% der Bildschirmhöhe */
+  flex-grow: 1; /* Stellt sicher, dass der Inhalt den verfügbaren Platz ausfüllt */
+}
+
+/* Links */
+a {
+  color: #646cff; /* Standardfarbe für Links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #535bf2; /* Hover-Farbe für Links */
+}
+
+/* Überschriften */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: #646cff;
+  background-color: #333333;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Media Query für Light Mode bevorzugt */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+}

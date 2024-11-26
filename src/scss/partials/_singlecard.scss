@@ -1,0 +1,50 @@
+
+
+/* ProjectCardsGrid.css */
+.main-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+    gap: 20px; /* Space between the cards */
+    width: 100%;
+    max-width: 1200px; /* Optional: Set max width to prevent the grid from stretching too wide */
+  }
+  
+  .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* Optional: For rounded corners on the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow to cards */
+  }
+  
+  .card img {
+    width: 100%; /* Make the image fill the width of the card */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures images cover the card area without stretching */
+  }
+  
+  @media (max-width: 1200px) {
+    .card-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns on medium-sized screens */
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .card-grid {
+      grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+  }
+  
+  

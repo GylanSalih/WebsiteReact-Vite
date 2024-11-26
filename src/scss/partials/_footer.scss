@@ -1,0 +1,42 @@
+/*-----------------------------------------------------------*/
+// Footer SCSS
+/*-----------------------------------------------------------*/
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Sicherstellen, dass die Seite immer die gesamte Höhe des Viewports einnimmt */
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Position relative zum Rest des Inhalts */
+  bottom: 0; /* Fixiert den Footer am unteren Rand */
+}
+
+/* Social Icons Styles */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #2980b9; /* Blaue Farbe beim Hover */
+}
+
+.social-icons a:active {
+  color: #3498db; /* Etwas andere Farbe beim Klick */
+}

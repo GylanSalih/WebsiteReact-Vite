@@ -1,59 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 
 const Cursor = () => {
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
-  const [cursorPosX, setCursorPosX] = useState(0);
-  const [cursorPosY, setCursorPosY] = useState(0);
-
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [followerPosition, setFollowerPosition] = useState({ x: 0, y: 0 });
   const [isMouseDown, setIsMouseDown] = useState(false);
 
   useEffect(() => {
-    // Mausbewegung-Handler
-    const handleMouseMove = (e) => {
-      setMouseX(e.clientX);
-      setMouseY(e.clientY);
+    let animationFrameId;
+
+    // Update Cursor und Follower Position
+    const updateCursorPosition = () => {
+      setFollowerPosition((prev) => ({
+        x: prev.x + (mousePosition.x - prev.x) / 9,
+        y: prev.y + (mousePosition.y - prev.y) / 9,
+      }));
+
+      // Request next animation frame
+      animationFrameId = requestAnimationFrame(updateCursorPosition);
     };
 
-    // Klick-Handler
-    const handleMouseDown = () => {
-      setIsMouseDown(true);
+    // Mausbewegungs-Event-Listener
+    const updateMousePosition = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    const handleMouseUp = () => {
-      setIsMouseDown(false);
-    };
+    window.addEventListener("mousemove", updateMousePosition);
+    window.addEventListener("mousedown", () => setIsMouseDown(true));
+    window.addEventListener("mouseup", () => setIsMouseDown(false));
 
-    // Event-Listener hinzufügen
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
+    // Starte die Cursor-Bewegung
+    animationFrameId = requestAnimationFrame(updateCursorPosition);
 
-    // Cursor-Animation
-    const interval = setInterval(() => {
-      setCursorPosX(prevX => prevX + (mouseX - prevX) / 9);
-      setCursorPosY(prevY => prevY + (mouseY - prevY) / 9);
-    }, 16); // 60 FPS
-
-    // Cleanup
+    // Aufräumen beim Verlassen des Effekts
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
-      clearInterval(interval);
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, [mouseX, mouseY]);
+  }, [mousePosition]);
 
   return (
     <>
       <div
-        className={`cursor ${isMouseDown ? 'active' : ''}`}
-        style={{ left: `${mouseX}px`, top: `${mouseY}px` }}
-      />
+        className={`cursor ${isMouseDown ? "active" : ""}`}
+        style={{
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+        }}
+      ></div>
       <div
-        className="cursor-follower"
-        style={{ left: `${cursorPosX}px`, top: `${cursorPosY}px` }}
-      />
+        className={`cursor-follower ${isMouseDown ? "active" : ""}`}
+        style={{
+          left: `${followerPosition.x}px`,
+          top: `${followerPosition.y}px`,
+        }}
+      ></div>
     </>
   );
 };

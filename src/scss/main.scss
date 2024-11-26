@@ -1,0 +1,30 @@
+/*-----------------------------------------------------------*/
+// All Parts to One <3
+/*-----------------------------------------------------------*/
+
+// -------------------------
+// Global Styles
+// -------------------------
+@use './partials/globals';   // Definiert die grundlegenden globalen Stile wie Farben, Abstände und Layouts.
+@use './partials/fonts';     // Legt die Schriftarten für die gesamte Seite fest.
+
+// -------------------------
+// Layouts
+// -------------------------
+@use './partials/navbar';    // Stile für den Header (Navigation, Branding, etc.).
+@use './partials/footer';    // Stile für den Footer (z.B. Copyright, Links, etc.).
+@use './partials/cursor';    // Benutzerdefinierter Cursor, der global angewendet wird.
+
+// -------------------------
+// Pages
+// -------------------------
+@use './partials/home-page';     // Stile für die Homepage.
+@use './partials/portfolio-page'; // Stile für die Portfolio-Seite.
+@use './partials/aboutme-page';   // Stile für die "Über mich"-Seite.
+
+// -------------------------
+// Components
+// -------------------------
+@use './partials/darkmode';    // Stile für den Dunkelmodus (möglicherweise als toggle verfügbar).
+@use './partials/cardgrid';    // Stile für ein Kartenraster, z.B. auf der Portfolio-Seite.
+@use './partials/singlecard';  // Stile für einzelne Karten, z.B. für Portfolio-Einträge oder andere Komponenten.

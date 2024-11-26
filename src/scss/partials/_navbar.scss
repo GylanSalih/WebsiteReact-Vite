@@ -1,0 +1,124 @@
+/* Allgemeine Navbar Styles */
+.navbar {
+  position: -webkit-sticky; /* Für Safari */
+  position: sticky;
+  top: 0;
+  padding: 14px 0;
+  background-color: transparent;
+  transition: background-color 0.6s ease; /* Smooth transition */
+  z-index: 1000; /* Damit der Header immer oben bleibt */
+}
+
+/* Sticky Navbar Styles */
+.navbar.sticky {
+  background-color: #000000; /* Oder je nach Modus */
+  transform: translateY(0); /* Der Header bewegt sich mit dem Scrollen */
+}
+
+/* Hintergrundfarbe für den Header im Light Mode */
+.navbar.sticky.light-mode {
+  background-color: #ff0000;
+}
+
+/* Hintergrundfarbe für den Header im Dark Mode */
+.navbar.sticky.dark-mode {
+  background-color: #000000;
+}
+
+/* Keine Transition bei Dark Mode Toggle */
+.navbar.no-transition {
+  transition: none !important;
+}
+
+/* Navbar Container Styles */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* Navbar Logo */
+.logo img {
+  width: 64px; /* Passen Sie die Größe des Logos an */
+  filter: none;  /* Kein Filter für das Logo im Light Mode */
+}
+
+/* Navigation Links Styles */
+.nav-links {
+  flex-grow: 1;
+}
+
+.nav-links ul {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+/* Standard Link Farben */
+.nav-links li a {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 10px;
+  color: #ffd000;  /* Standard Textfarbe für Links */
+}
+
+/* Dark Mode: Farbe für Links im Dunkelmodus */
+.dark-mode .nav-links li a {
+  color: #fd0054;  /* Grüne Links im Dunkelmodus */
+}
+
+/* Light Mode: Farbe für Links im Hellmodus */
+.navbar.light-mode .nav-links li a {
+  color: #ffd000;  /* Schwarze Links im Hellmodus */
+} 
+
+/* Hover-Effekte */
+.nav-links li a:hover {
+  background-color: #ff0055;
+  border-radius: 5px;
+}
+
+/* Dark Mode Toggle Styles */
+.darkmode-toggle button {
+  background-color: transparent;
+  border: 2px solid #000;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;  /* Schwarze Schrift für den Button */
+}
+
+/* Dark Mode Toggle Hover-Effekt */
+.darkmode-toggle button:hover {
+  background-color: #f0f0f0;  /* Hellgrauer Hover-Effekt */
+}
+
+/* ------------------------------- */
+
+/* Dark Mode Styles */
+.navbar.dark-mode {
+  background-color: #000000;  /* Dunkler Hintergrund */
+}
+
+.navbar.dark-mode .nav-links li a {
+  color: #fff;  /* Weiße Schrift für Links im Dunkelmodus */
+}
+
+.navbar.dark-mode .darkmode-toggle button {
+  border-color: #fff;  /* Weiße Umrandung für den Button im Dunkelmodus */
+  color: #fff;  /* Weiße Schrift für den Button */
+}
+
+.navbar.dark-mode .darkmode-toggle button:hover {
+  background-color: #555;  /* Dunkelgrauer Hover-Effekt im Dunkelmodus */
+}
