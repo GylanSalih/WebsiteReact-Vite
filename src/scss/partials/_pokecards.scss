@@ -36,95 +36,17 @@
   --posy: 50%;
   --hyp: 0;
   --galaxybg: center 740px;
+  perspective: 1000px; /* Add this if not already present */
 }
 
 
 
 
-
-
-
-
-
-
-
-/*-------------------------------FILTER START------------------------------- */
-
-/* For the Folie Choose */
-
-/* Adjusting PNL_options to fit inside the grid layout */
-.PNL_options {
-margin-left: auto;
+@media (max-width: 768px) {
+  .card {
+    transform: none; /* Disable tilt effect for mobile */
+  }
 }
-
-
-/* Hover effects to maintain consistency */
-.PNL_options:hover {
-background: #0e0e0e; 
-transform: translateY(-2px); /* Slight lift on hover */
-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
-}
-
-/* Display the options panel normally */
-.PNL_options.show {
-opacity: 1;
-transform: translateY(0);
-}
-
-/* Styling for the dropdown menu within the panel */
-.PNL_options select {
-background: #333;
-color: #e0e0e0;
-border: 1px solid #444;
-border-radius: 6px;
-padding: 8px 12px;
-font-family: "Poppins", sans-serif;
-transition: border-color 0.3s ease, background 0.3s ease;
-}
-
-/* Styling for dropdown options */
-.PNL_options option {
-background: #1e1e1e; 
-color: #e0e0e0;
-}
-
-/* Focus styling for the dropdown */
-.PNL_options select:focus {
-outline: none; 
-background: #333; 
-border-color: #777;
-}
-
-/* Responsive adjustments if necessary */
-@media screen and (max-width: 1024px) {
-.PNL_options {
-  width: 100%; /* Make the options panel take full width on smaller screens */
-  margin-top: 8px;
-}
-}
-
-@media screen and (max-width: 480px) {
-.PNL_options {
-  width: 100%;
-}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -198,68 +120,6 @@ height: 1.25rem;
 width: 1.25rem;
 }
 
-/*------------------------- FILTERING DROPDOWN STYLES -------------------------*/
-
-.filtering {
-margin-left: auto; /* Align dropdown to the right */
-}
-
-.filtering label {
-color: #ffffff; /* White text for labels */
-font-size: 1em;
-margin-right: 8px; /* Spacing between label and dropdown */
-}
-
-.filtering select {
-background: #333; /* Matte black background */
-color: #e0e0e0; /* Light text color for contrast */
-border: 1px solid #444; /* Darker border to match the background */
-border-radius: 6px;
-padding: 8px 12px;
-font-family: 'Poppins', sans-serif;
-transition: border-color 0.3s ease, background 0.3s ease;
-}
-
-.filtering select:focus {
-outline: none;
-border-color: #b16d00; /* Highlight color on focus */
-background: #222; /* Slightly darker background on focus */
-}
-
-/*------------------------- MEDIA QUERIES -------------------------*/
-
-/* Tablet View (max-width: 1024px) */
-@media screen and (max-width: 1024px) {
-.grid-section {
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.filtering {
-  margin-left: 0;
-  margin-top: 8px; /* Margin for mobile view */
-  width: 100%; /* Full width */
-  text-align: center; /* Center align */
-}
-}
-
-/* Mobile View (max-width: 480px) */
-@media screen and (max-width: 480px) {
-.filtering {
-  margin-top: 8px;
-  width: 100%;
-  text-align: center;
-}
-.grid-section {
-  width: 100%;
-  text-align: center;
-  position: relative;
-}
-}
-
-/* -------------------- Grid layout filter END ------------------------*/
-
-
 
 
 
@@ -302,11 +162,12 @@ background: #222; /* Slightly darker background on focus */
 
 /* Card-grid container */
 .card-grid {
-display: grid;
-grid-column-gap: 14px;
-grid-row-gap: 14px;
-margin: auto;
-transition: transform 0.2s ease;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 Spalten */
+  grid-template-rows: repeat(2, auto);   /* 2 Reihen */
+  gap: 20px;                              /* Abstand zwischen den Karten */
+  max-width: 1200px;                      /* Maximale Breite des Grids */
+  width: 100%;
 }
 
 
@@ -471,7 +332,8 @@ transition: transform 0.2s ease;
   text-align: center;
   text-transform: uppercase;
   top: 0;
-  transition: opacity 0.3s ease;
+  transform: scale(0.95); /* Initial scale */
+  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 2;
 }
 
@@ -957,37 +819,15 @@ pointer-events: none; /* Verhindert alle Mausinteraktionen auf dem Fortschrittsb
 /* -------------------- CSS FÜR ALLE Effekte START ------------------------*/
 
 
-.card__shine {
-  display: grid;
-  overflow: hidden;
-  z-index: 3;
-  transform: translateZ(1px);
-  background: transparent;
-  mix-blend-mode: color-dodge;
-  filter: brightness(.85) contrast(2.75) saturate(.65);
-  background-size: cover;
-  background-position: center;
-  opacity: var(--o);
-}
-
-.card__shine:before {
-  grid-area: 1 / 1;
-  transform: translateZ(1px);
-}
-
-.card__shine:after {
-  grid-area: 1 / 1;
-  transform: translateZ(1.2px);
-  border-radius: var(--radius);
-}
-
-
 .card__shine,
 .card__glare {
-  
   will-change: transform, opacity, background-image, background-size,
     background-position, background-blend-mode, filter;
- 
+}
+
+.holographic:hover .card__shine,
+.holographic:hover .card__glare {
+  will-change: transform, opacity;
 }
 
 
@@ -1019,6 +859,7 @@ pointer-events: none; /* Verhindert alle Mausinteraktionen auf dem Fortschrittsb
   background-size: cover;
   background-position: center;
   opacity: var(--o);
+  transform: translateZ(2px); /* Slightly larger to enhance 3D effect */
 }
 
 .card__shine:before {
@@ -1261,7 +1102,9 @@ background-position:
   var(--posx) var(--posy), 
   var(--posx) var(--posy);
 
-filter: brightness(calc((var(--hyp)*0.3) + 0.5)) contrast(2.5) saturate(.6);
+// filter: brightness(calc((var(--hyp)*0.3) + 0.5)) contrast(2.5) saturate(.6);
+filter: brightness(calc((var(--hyp) * 1) + 0.5)) contrast(2.5) saturate(1);
+
 }
 
 .card[data-rarity="rare holo vmax"]:hover .card__glare {
@@ -1714,7 +1557,7 @@ background-position:
 
 background-blend-mode: exclusion, darken, color-dodge;
 
-filter: brightness(.95) contrast(4) saturate(0.75);
+filter: brightness(1.05) contrast(4) saturate(0.75);
 mix-blend-mode: color-dodge;
 }
 
@@ -1821,7 +1664,7 @@ background-image: radial-gradient(farthest-corner circle at var(--mx) var(--my),
     background-position: center;
     background-size: 200% 200%;
   
-    filter: brightness(calc((var(--hyp)*0.2) + 0.4)) contrast(.85) saturate(1.1);
+    // filter: brightness(calc((var(--hyp)*0.2) + 0.4)) contrast(33.85) saturate(1.1);
     mix-blend-mode: hard-light;
   
   }

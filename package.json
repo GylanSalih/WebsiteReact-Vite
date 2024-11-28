@@ -11,6 +11,9 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "@fancyapps/ui": "5.0",
+    "gsap": "^3.12.5",
+    "jquery": "^3.7.1",
     "lottie-web": "^5.12.2",
     "react": "~18.3.1",
     "react-dom": "~18.3.1",

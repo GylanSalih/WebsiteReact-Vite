@@ -19,7 +19,6 @@
 // Pages
 // -------------------------
 @use './partials/home-page';     // Stile für die Homepage.
-@use './partials/portfolio-page'; // Stile für die Portfolio-Seite.
 @use './partials/aboutme-page';   // Stile für die "Über mich"-Seite.
 
 // -------------------------
@@ -27,4 +26,4 @@
 // -------------------------
 @use './partials/darkmode';    // Stile für den Dunkelmodus (möglicherweise als toggle verfügbar).
 @use './partials/cardgrid';    // Stile für ein Kartenraster, z.B. auf der Portfolio-Seite.
-@use './partials/singlecard';  // Stile für einzelne Karten, z.B. für Portfolio-Einträge oder andere Komponenten.
+@use './partials/_pokecards';  // Stile für einzelne Karten, z.B. für Portfolio-Einträge oder andere Komponenten.
