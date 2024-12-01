@@ -14,13 +14,14 @@
 @use './partials/navbar';    // Stile für den Header (Navigation, Branding, etc.).
 @use './partials/footer';    // Stile für den Footer (z.B. Copyright, Links, etc.).
 @use './partials/cursor';    // Benutzerdefinierter Cursor, der global angewendet wird.
+@use './partials/preload';    // Benutzerdefinierter Cursor, der global angewendet wird.
 
 // -------------------------
 // Pages
 // -------------------------
 @use './partials/home-page';     // Stile für die Homepage.
 @use './partials/aboutme-page';   // Stile für die "Über mich"-Seite.
-
+@use './partials/_viewsinglecard';   // Stile für die "Über mich"-Seite.
 // -------------------------
 // Components
 // -------------------------

@@ -1,0 +1,6 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Sicherstellen, dass die Seite immer die gesamte Höhe des Viewports einnimmt */
+    padding-top: 75px;
+}

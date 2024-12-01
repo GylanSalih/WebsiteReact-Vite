@@ -1,0 +1,90 @@
+import React, { useState, useEffect } from "react";
+
+const FilterAndGridLayout = ({ onCategoryChange, onCardTypeChange }) => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCardType, setSelectedCardType] = useState('normal');
+  const [activeLayout, setActiveLayout] = useState(1);
+
+  useEffect(() => {
+    onCategoryChange(selectedCategory);
+  }, [selectedCategory, onCategoryChange]);
+
+  useEffect(() => {
+    onCardTypeChange(selectedCardType);
+  }, [selectedCardType, onCardTypeChange]);
+
+  const changeGridLayout = (layout) => {
+    setActiveLayout(layout);
+  };
+
+  // Dynamische CSS-Klassen basierend auf dem Layout
+  const gridClass = `grid-layout-${activeLayout}`;
+
+  return (
+    <div id="view-section" className="grid-section">
+      {/* Filter-Optionen */}
+      <div className="filtering">
+        <label htmlFor="category-filter">Sort By</label>
+        <select
+          id="category-filter"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="all">Show All</option>
+          <option value="Design">Design</option>
+          <option value="Coding">Coding</option>
+          <option value="Marketing">Marketing</option>
+        </select>
+      </div>
+
+      <div className="PNL_options">
+        <select onChange={(e) => setSelectedCardType(e.target.value)}>
+          <option value="normal">normal</option>
+          <option value="rare ultra">rare ultra</option>
+          <option value="ShineBlitz">ShineBlitz</option>
+          <option value="radiant">radiant</option>
+          <option value="rare holo">rare holo</option>
+          <option value="rare holo vmax">rare holo vmax</option>
+          <option value="rare rainbow">rare rainbow</option>
+          <option value="rare secret">rare secret</option>
+          <option value="rare holo v1">rare holo v1</option>
+          <option value="rare holo vstar">rare holo vstar</option>
+        </select>
+      </div>
+
+      {/* Layout Buttons */}
+      <div id="grid-wrapper">
+        <div id="view-section" className="grid-section">
+          <button
+            type="button"
+            className={`example-button short ${activeLayout === 1 ? 'active' : ''}`}
+            onClick={() => changeGridLayout(1)}
+          >
+            <img src="../../src/assets/icons/reduced_img/_grid_icon1.png" alt="Grid 1" />
+          </button>
+          <button
+            type="button"
+            className={`example-button short ${activeLayout === 2 ? 'active' : ''}`}
+            onClick={() => changeGridLayout(2)}
+          >
+            <img src="../../src/assets/icons/reduced_img/_grid_icon2.png" alt="Grid 2" />
+          </button>
+          <button
+            type="button"
+            className={`example-button short ${activeLayout === 3 ? 'active' : ''}`}
+            onClick={() => changeGridLayout(3)}
+          >
+            <img src="/src/assets/icons/reduced_img/_grid_icon3.png" alt="Grid 3" />
+          </button>
+        </div>
+      </div>
+
+      {/* Grid Layout Container */}
+      <div className={`grid-container ${gridClass}`}>
+        {/* Karten werden hier angezeigt, z.B. <Card /> */}
+      </div>
+    </div>
+  );
+};
+
+export default FilterAndGridLayout;

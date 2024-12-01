@@ -1,8 +1,13 @@
+// src/Pages/Home/Home.jsx
 import React from 'react';
+import Carousel from '../../Components/Carousel/Carousel';  // Correct relative import
 
 const Home = () => {
   return (
     <div className="page home-page">
+      {/* Add the Carousel component at the top */}
+      <Carousel />
+
       <header className="home-header">
         <h1>Welcome to My Portfolio</h1>
         <p>Hi! I'm a passionate developer who loves building creative solutions. Explore my work and learn more about my skills and journey!</p>

@@ -1,0 +1,14 @@
+/* _fonts.scss */
+@font-face {
+  font-family: "AvantGarde";
+  src: url('../../assets/fonts/AvantGarde/AvantGardeBold.TTF') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Beispielhafte Anwendung */
+.portfolio-title {
+  font-family: 'AvantGarde', sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+}
