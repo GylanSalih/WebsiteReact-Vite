@@ -1,11 +1,18 @@
 /*-----------------------------------------------------------*/
-// Globals SCSS
+// Global Styles
 /*-----------------------------------------------------------*/
 
-/* Global Styles */
+/* Box-Sizing für alle Elemente */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Globale Schriftarten und Layout-Defaults */
 body {
-  font-family: "AvantGarde";
-  font-weight: bold;
+  font-family: "AvantGarde", sans-serif;
+  font-weight: 400;
   font-style: normal;
   margin: 0;
   padding: 0;
@@ -14,11 +21,12 @@ body {
   overflow-x: hidden; /* Verhindert horizontales Scrollen */
   width: 100%;
   height: 100%;
-  background-color: #ffffff; /* Standardfarbe für Light Mode */
-  color: #000000; /* Textfarbe für Light Mode */
+  background-color: #ffffff;
+  color: #000000;
   cursor: none;
+  min-width: 320px; /* Minimale Breite für den Body */
+  min-height: 480px; /* Minimale Höhe für den Body */
 }
-
 
 /* Dark Mode */
 body.dark-mode {
@@ -33,24 +41,85 @@ body.dark-mode {
   flex-grow: 1; /* Stellt sicher, dass der Inhalt den verfügbaren Platz ausfüllt */
 }
 
-/* Links */
+/*-----------------------------------------------------------*/
+// Links
+/*-----------------------------------------------------------*/
 a {
   color: #646cff; /* Standardfarbe für Links */
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
   color: #535bf2; /* Hover-Farbe für Links */
 }
 
-/* Überschriften */
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/*-----------------------------------------------------------*/
+// Überschriften
+/*-----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  font-weight: bold;
 }
 
-/* Buttons */
+h1 {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 0.4em;
+}
+
+h3 {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+
+h4 {
+  font-size: 1.75em;
+  margin-bottom: 0.2em;
+}
+
+h5 {
+  font-size: 1.5em;
+  margin-bottom: 0.2em;
+}
+
+h6 {
+  font-size: 1.25em;
+  margin-bottom: 0.2em;
+}
+
+/*-----------------------------------------------------------*/
+// Absätze und Text
+/*-----------------------------------------------------------*/
+p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1em;
+  font-weight: 400;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: 0.8em;
+}
+
+/*-----------------------------------------------------------*/
+// Buttons
+/*-----------------------------------------------------------*/
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -61,6 +130,7 @@ button {
   background-color: #1a1a1a;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 button:hover {
@@ -73,17 +143,83 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Media Query für Light Mode bevorzugt */
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-    color: #333;
-  }
+/*-----------------------------------------------------------*/
+// Formularelemente
+/*-----------------------------------------------------------*/
+select, input, textarea {
+  font-family: "AvantGarde", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  color: #333;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+select:focus, input:focus, textarea:focus {
+  border-color: #00796b;
+  outline: none;
+}
+
+select,
+select option {
+  -webkit-appearance: none; /* Entfernt natives Styling auf Webkit-Browsern */
+  -moz-appearance: none; /* Entfernt natives Styling auf Firefox */
+  appearance: none; /* Entfernt natives Styling allgemein */
+}
+
+/*-----------------------------------------------------------*/
+// Listen
+/*-----------------------------------------------------------*/
+ul, ol {
+  margin: 0;
+  padding-left: 20px;
+  list-style-position: inside;
+}
+
+li {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+/*-----------------------------------------------------------*/
+// Blockquotes
+/*-----------------------------------------------------------*/
+blockquote {
+  padding: 1em 2em;
+  border-left: 4px solid #00796b;
+  font-style: italic;
+  color: #555;
+  background-color: #f5f5f5;
+  margin: 20px 0;
+}
+
+/*-----------------------------------------------------------*/
+// Bilder
+/*-----------------------------------------------------------*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/*-----------------------------------------------------------*/
+// Audio/Video
+/*-----------------------------------------------------------*/
+audio, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/*-----------------------------------------------------------*/
+// Global Reset
+/*-----------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

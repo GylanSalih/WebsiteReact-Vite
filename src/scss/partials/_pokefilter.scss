@@ -1,0 +1,169 @@
+/* General Layout */
+#filter-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px; /* Etwas Polsterung für bessere Benutzererfahrung */
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center; /* Zentriert den Inhalt */
+  align-items: center;
+  flex-wrap: wrap; /* Ermöglicht Umbruch bei kleinerer Bildschirmbreite */
+  width: 100%;
+  max-width: 1080px;
+  padding-top: 80px;
+  gap: 20px;
+}
+
+#grid-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#view-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Buttons näher zusammen */
+  max-width: 200px;
+  margin-top: 20px;
+}
+
+.filtering,
+.PNL_options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Einheitlicher Abstand */
+}
+
+/* Buttons */
+.example-button {
+  background-color: #1c1c1e; /* Edles Dunkelgrau */
+  border: none; /* Keine unnötige Umrandung */
+  color: #f9f9f9; /* Hellgraue Schrift */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.example-button img {
+  max-width: 26px; /* Größeres Icon */
+  max-height: 26px;
+}
+
+.example-button:hover {
+  background-color: #b16d00; /* Leicht helleres Grau */
+  transform: scale(1.1); /* Subtile Vergrößerung */
+}
+
+.example-button.active {
+  background-color: #b16d00; /* Elegantes Grün für aktive Buttons */
+  transform: scale(1.1);
+}
+
+/* Filter Options */
+label {
+  font-size: 14px; /* Leicht kleinere Schrift für Klarheit */
+  color: #555;
+  font-weight: 600;
+  font-family: "AvantGarde";
+  font-weight: 400;
+  font-style: normal;
+}
+
+select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd; /* Dezenter Rand */
+  background-color: #f5f5f5;
+  font-size: 14px;
+  color: #333;
+  width: 100%; /* Einheitlich skalierbar */
+  transition: border-color 0.2s ease;
+  font-family: "AvantGarde";
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+select option {
+  font-family: "AvantGarde";
+  font-weight: 400;
+  font-style: normal;
+  color: #333; /* Falls Schriftfarbe wichtig ist */
+  background-color: #f5f5f5; /* Einheitliche Hintergrundfarbe */
+}
+
+select:focus {
+  border-color: #00796b; /* Elegantes Grün bei Fokus */
+  outline: none;
+}
+
+/* Card Grid Layout */
+.card-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-grid.layout-1 {
+  grid-template-columns: repeat(4, 1fr);
+  width: 65%;
+  height: 100%;
+}
+
+.card-grid.layout-2 {
+  grid-template-columns: repeat(5, 1fr);
+  width: 80%;
+}
+
+.card-grid.layout-3 {
+  grid-template-columns: repeat(8, 1fr);
+  width: 133%;
+}
+
+.card-grid .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: center; /* Zentriert den Filter auf mobilen Geräten */
+    gap: 20px; /* Einheitlich Abstand */
+    padding-top: 40px; /* Weniger Abstand nach oben auf kleinen Geräten */
+  }
+
+  .card-grid.layout-1 {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+
+  .card-grid.layout-2 {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  .card-grid.layout-3 {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+
+  #view-section {
+    justify-content: flex-start;
+  }
+}

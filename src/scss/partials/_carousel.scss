@@ -1,0 +1,329 @@
+
+
+//#region Landing Page Slider
+/*------------------------------------------------------------*/
+/* Landing Page Slider Start                                  */
+/*------------------------------------------------------------*/
+
+/* Sicherstellen, dass der Inhalt nicht den sichtbaren Bereich verlässt */
+.carousel-wrapper {
+    padding-top: 150px;
+    width: 100%;
+    height: 85vh;
+    overflow: hidden;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  /* Dark Mode Styling for Slider */
+  .dark-mode .carousel-wrapper {
+    background: rgb(0, 0, 0);
+  }
+  
+  /* Slide */
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  /* Active Slide */
+  .slide.active {
+    opacity: 1;
+  }
+  
+  /* Slide Content */
+  .slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .slide-image, 
+  .slide-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+  }
+  
+  /* Active Image oder Video */
+  .slide.active .slide-image, 
+  .slide.active .slide-video {
+    transform: scale(1);
+  }
+  
+  /* Blur und Helligkeits-Effekt für inaktive Slides */
+  .slide:not(.active) .slide-image, 
+  .slide:not(.active) .slide-video {
+    filter: blur(5px) brightness(0.8);
+  }
+  
+  /* Text Overlay */
+  .text-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(255, 255, 255), rgba(0, 0, 0, 0));
+    z-index: 1;
+  }
+  
+  /* Dark Mode Text Overlay */
+  .dark-mode .text-overlay {
+    background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  }
+  
+  /* Text Overlay After */
+  .text-overlay::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  /* Text Content for Slider */
+  .text-content-slider {
+    width: 68%;
+    padding: 4rem;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    color: var(--black);
+  }
+  
+  /* Dark Mode Text Content */
+  .dark-mode .text-content-slider {
+    color: var(--white);
+  }
+  
+  /* Responsive Text Content */
+  @media screen and (max-width: 771px) {
+    .text-content-slider {
+      padding: 2rem;
+      text-align: center;
+    }
+  }
+  
+  /* Subtitle Styling */
+  .subtitle-slider {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+  
+  /* Dark Mode Subtitle */
+  .dark-mode .subtitle-slider {
+    color: var(--white);
+  }
+  
+  /* Title Styling */
+  .title-slider {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  
+  /* Responsive Title */
+  @media screen and (max-width: 901px) {
+    .title-slider {
+      font-size: 4rem;
+      line-height: 1.1;
+    }
+  }
+  
+  /* Dark Mode Title */
+  .dark-mode .title-slider {
+    color: var(--white);
+  }
+  
+  /* Description Styling */
+  .description-slider {
+    font-size: 1.125rem;
+    color: var(--black);
+    line-height: 1.6;
+    margin: 1rem auto;
+    text-align: center;
+  }
+  
+  /* Responsive Description */
+  @media screen and (max-width: 771px) {
+    .description-slider {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+  
+  /* Dark Mode Description */
+  .dark-mode .description-slider {
+    color: var(--white);
+  }
+  
+  /* Background Text */
+  .background-text-slider {
+    position: absolute;
+    bottom: 122px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 8rem;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.13);
+    z-index: 0;
+  }
+  
+  /* Dark Mode Background Text */
+  .dark-mode .background-text-slider {
+    -webkit-text-stroke: 2px rgba(194, 167, 167, 0.116);
+  }
+  
+  
+  
+  
+
+
+//#region Slider Navigation
+/*------------------------------------------------------------*/
+/* Slider Navigation                                          */
+/*------------------------------------------------------------*/
+
+/* Navigation Wrapper */
+.carousel-wrapper .navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+  
+  /* Responsive Navigation Position */
+  @media screen and (max-width: 1024px) {
+    .carousel-wrapper .navigation {
+      bottom: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .carousel-wrapper .navigation {
+      bottom: 10px;
+    }
+  }
+  
+  /* Navigation Dots */
+  .carousel-wrapper .nav-dot {
+    background: rgb(255, 255, 255); /* Light mode background */
+    border-radius: 50%;
+    border: 2px solid #000000; /* Light mode border */
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    margin: 0 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Dark Mode Navigation Dots */
+  .dark-mode .carousel-wrapper .nav-dot {
+    background: rgb(0, 0, 0); /* Dark mode background */
+    border: 2px solid #ffffff; /* Dark mode border */
+  }
+  
+  /* Active Navigation Dot */
+  .carousel-wrapper .nav-dot.active {
+    background: #000000; /* Active dot background */
+    width: 100px;
+    height: 14px;
+    border-radius: 24px;
+    transform: scale(1);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  /* Loading Animation */
+  .carousel-wrapper .nav-dot.loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff; /* Progress bar color */
+    transform: scaleX(0); /* Start at 0 */
+    transform-origin: left;
+    animation: progressBar 5s linear forwards;
+    pointer-events: none; /* Prevent interactions */
+    border-radius: inherit; /* Match the parent dot's shape */
+  }
+  
+  /* Prevent Interaction During Loading */
+  .carousel-wrapper .nav-dot.loading {
+    pointer-events: none;
+  }
+  
+  /* Hover Effect for Inactive Dots */
+  .carousel-wrapper .nav-dot:not(.active):hover {
+    background: #000000; /* Hover background for inactive dots */
+    transform: scale(1.1);
+  }
+  
+  .dark-mode .carousel-wrapper .nav-dot:not(.active):hover {
+    background: #ffffff; /* Dark mode hover background */
+    transform: scale(1.1);
+  }
+  
+  /* Hover Effect for Active Dot */
+  .carousel-wrapper .nav-dot.active:hover {
+    transform: scale(1.2); /* Scale effect only */
+  }
+  
+  /* Keyframes for Progress Bar Animation */
+  @keyframes progressBar {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+  
+  /* Inner Progress Bar */
+  .carousel-wrapper .nav-dot .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%; /* Initial state */
+    height: 100%;
+    background-color: #ffffff; /* Progress bar color */
+    transition: width 0.1s ease-out;
+    pointer-events: none; /* Disable interactions */
+  }
+  
+  /*------------------------------------------------------------*/
+  /* Slider Navigation ENDE                                     */
+  /*------------------------------------------------------------*/
+  //#endregion Slider Navigation

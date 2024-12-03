@@ -7,7 +7,7 @@ import './scss/main.scss';
 import Home from './Pages/Home/Home';
 import Portfolio from './Pages/Portfolio/Portfolio';
 import About from './Pages/About/About';
-import Page1 from './Pages/Page1/Page1.jsx'; // Neu hinzugefügt
+import Page1 from './Pages/SingleCardViewProjekt1/Page1.jsx'; // Neu hinzugefügt
 import Page2 from './Pages/Page2/Page2.jsx'; // Neu hinzugefügt
 import Preload from './Components/Preload/Preload';
 
